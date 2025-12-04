@@ -62,7 +62,7 @@ function Home() {
 
     
     useEffect(() => {
-        fetch(`${apiUrl}/products`)
+        fetch(`${apiUrl}products`)
         .then(response => response.json())
         .then(data => {
             setProducts(data.products)
