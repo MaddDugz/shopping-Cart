@@ -25,7 +25,7 @@ function AddProduct (){
     }
 
     async function formSubmit(e){
-        // e.preventDefault();
+        e.preventDefault();
         try{
             const formData = new FormData(productForm.current);
            
@@ -34,6 +34,9 @@ function AddProduct (){
                 body: formData
             });
             const data = await response.json();
+
+             // Reload the page AFTER the request is done
+            window.location.reload();
 
         }catch(err){
         console.error("Error:" + err.message);
