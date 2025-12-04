@@ -42,7 +42,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 //handle delete 
 function deleteProduct(id){
-    fetch(`${apiUrl}products/delete/${id}`, {
+    fetch(`${apiUrl}/products/delete/${id}`, {
         method: "DELETE",
     })
     .then(response => response.text())
@@ -62,7 +62,7 @@ function Home() {
 
     
     useEffect(() => {
-        fetch(`${apiUrl}products`)
+        fetch(`${apiUrl}/products`)
         .then(response => response.json())
         .then(data => {
             setProducts(data.products)
@@ -73,9 +73,9 @@ function Home() {
     useEffect(() => {
         let url = ""
         if(searchTerm.length <= 1){
-            url = `${apiUrl}products`
+            url = `${apiUrl}/products`
         }else{
-            url = `${apiUrl}products/product?q=${searchTerm}`
+            url = `${apiUrl}/products/product?q=${searchTerm}`
 
         }
         fetch(`${url}`)
