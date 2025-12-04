@@ -85,6 +85,8 @@ function Home() {
                         ? data
                         : data.products || [])  // Handle different response structures
 
+            console.log(data.length)
+            console.log(products.length)
             if(products.length === 0){
               setError("No Products Available")
           }
