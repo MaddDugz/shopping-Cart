@@ -86,7 +86,7 @@ function Home() {
                         : data.products || [])  // Handle different response structures
 
             if(products.length === 0){
-              setError(data.message)
+              setError("No Products Available")
           }
         })   
         .catch(error => console.error('Error:'+ error.message));
