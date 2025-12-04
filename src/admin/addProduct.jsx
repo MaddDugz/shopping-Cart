@@ -29,7 +29,7 @@ function AddProduct (){
         try{
             const formData = new FormData(productForm.current);
            
-            const response = await fetch(`${apiUrl}/user/product`, {
+            const response = await fetch(`${apiUrl}user/product`, {
                 method: "POST",
                 body: formData
             });

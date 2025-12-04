@@ -28,7 +28,7 @@ function  UpdateProduct(){
 
     // get former values
     useEffect(() => {
-        fetch(`${apiUrl}/products/productById/${id}`)
+        fetch(`${apiUrl}products/productById/${id}`)
         .then(res=> res.json())
         .then(data => {
             setName(data.name)
@@ -43,7 +43,7 @@ function  UpdateProduct(){
     function Update(e){
         e.preventDefault()
         const formData = new FormData (productForm.current)
-        fetch(`${apiUrl}/products/update/${id}`, {
+        fetch(`${apiUrl}products/update/${id}`, {
             method : "PUT",
             body : formData
         })
