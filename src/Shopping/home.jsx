@@ -101,23 +101,25 @@ function Home() {
         </div>
 
         <div className="Products">
-            {products.map(product =>(
-                <div key={product._id}>
-                   <div className="img"> 
-                    {islogged &&( <Dropdown id={product._id} />)}
-                    <img src={`${apiUrl}/${product.imageUrl}`} alt={product.name} />
-                    </div> 
-                   <h3 className="price">{product.name}</h3>
-                   <p className="price">Price: ${product.price}</p>
+            {products.length > 0 && (
+              products.map(product =>(
+                  <div key={product._id}>
+                    <div className="img"> 
+                      {islogged &&( <Dropdown id={product._id} />)}
+                      <img src={`${apiUrl}/${product.imageUrl}`} alt={product.name} />
+                      </div> 
+                    <h3 className="price">{product.name}</h3>
+                    <p className="price">Price: ${product.price}</p>
 
-                   <button className="btn"  disabled={Btndisabled[product._id]}  onClick={()=>addCart({
-                    id: product._id,                             
-                    image: `${apiUrl}/${product.imageUrl}`,
-                    price: product.price,
-                    name : product.name
-                   })}>Add to Cart</button>
-                </div>
-            ))}
+                    <button className="btn"  disabled={Btndisabled[product._id]}  onClick={()=>addCart({
+                      id: product._id,                             
+                      image: `${apiUrl}/${product.imageUrl}`,
+                      price: product.price,
+                      name : product.name
+                    })}>Add to Cart</button>
+                  </div>
+              ))
+           )}
         </div>
 
           { products.length === 0 && (
