@@ -56,7 +56,7 @@ function deleteProduct(id){
 function Home() {
     const {addCart, Btndisabled, searchTerm} = useShared()
     const {islogged} = useAuth()
-    const [products, setProducts]    = useState([])
+    const [products, setProducts] = useState([])
      const [error, setError] = useState("") 
 
 
@@ -88,6 +88,8 @@ function Home() {
             if(products.length === 0){
               setError("No Products Available")
           }
+          console.log(data.length)
+          console.log(products.length)
         })   
         .catch(error => console.error('Error:'+ error.message));
     }, [searchTerm]);
