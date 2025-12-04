@@ -35,7 +35,7 @@ function AddProduct (){
             });
             const data = await response.json();
 
-             // Reload the page AFTER the request is done
+            // Reload the page AFTER the request is done
             window.location.reload();
 
         }catch(err){

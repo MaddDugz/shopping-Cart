@@ -62,7 +62,7 @@ function  UpdateProduct(){
                 <form action="" ref={productForm} encType="multipart/form-data" className="login-form">
 
                     <div className="prodImgCont" onClick={image}>
-                            <img src={`${apiUrl}/${preview}`} alt="Product Preview" className="prodImg" />
+                            <img src={preview} alt="Product Preview" className="prodImg" />
                     </div>
 
                     <input type="text" placeholder="ProductName" name="name" value={name} className="input-field" onChange={(e) => setName(e.target.value) } />

@@ -106,7 +106,7 @@ function Home() {
                   <div key={product._id}>
                     <div className="img"> 
                       {islogged &&( <Dropdown id={product._id} />)}
-                      <img src={`${apiUrl}/${product.imageUrl}`} alt={product.name} />
+                      <img src={product.imageUrl} alt={product.name} />
                       </div> 
                     <h3 className="price">{product.name}</h3>
                     <p className="price">Price: ${product.price}</p>
