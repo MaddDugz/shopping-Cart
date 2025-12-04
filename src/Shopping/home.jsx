@@ -65,7 +65,7 @@ function Home() {
         fetch(`${apiUrl}/products`)
         .then(response => response.json())
         .then(data => {
-            setProducts(data.products)
+            setProducts(data.products || [])
         })
         .catch(error => console.error('Error fetching products:'+ error.message));
     }, [])
