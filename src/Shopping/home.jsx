@@ -113,7 +113,7 @@ function Home() {
 
                     <button className="btn"  disabled={Btndisabled[product._id]}  onClick={()=>addCart({
                       id: product._id,                             
-                      image: `${apiUrl}/${product.imageUrl}`,
+                      image: `${product.imageUrl}`,
                       price: product.price,
                       name : product.name
                     })}>Add to Cart</button>
