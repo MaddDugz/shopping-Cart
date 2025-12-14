@@ -3,7 +3,7 @@ import { useShared } from "../Shared.jsx"
 import { useAuth } from "../authShared.jsx"
 const apiUrl = import.meta.env.VITE_API_URL;
 
-// Dropdown menu component (not used in current Home component)
+// Dropdown menu component ( used when logged in)
  function Dropdown({id}) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef();
@@ -57,19 +57,26 @@ function Home() {
     const {addCart, Btndisabled, searchTerm} = useShared()
     const {islogged} = useAuth()
     const [products, setProducts] = useState([])
-     const [error, setError] = useState("") 
+    const [error, setError] = useState("") 
+    const [loading, setLoading] = useState(true); // track loading state
 
 
-    
+  // handle product display
     useEffect(() => {
         fetch(`${apiUrl}/products`)
         .then(response => response.json())
         .then(data => {
             setProducts(data.products || [])
+            setLoading(false); // stop loading once data arrives
         })
-        .catch(error => console.error('Error fetching products:'+ error.message));
+        .catch((error) => {
+          console.error('Error fetching products:'+ error.message)
+           setLoading(false); // stop loading if error
+        });
+
     }, [])
 
+    //handle search requests
     useEffect(() => {
         let url = ""
         if(searchTerm.length <= 1){
@@ -121,6 +128,10 @@ function Home() {
               ))
            )}
         </div>
+        
+        { loading && (
+            <div className="error">Loading...</div>  // loading message
+        )}
 
           { products.length === 0 && (
                     <p className="error">{error}</p>
